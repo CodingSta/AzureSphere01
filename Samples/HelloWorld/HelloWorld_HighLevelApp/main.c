@@ -33,50 +33,30 @@ int main(void)
     int fd2 = GPIO_OpenAsOutput(MT3620_GPIO7, GPIO_OutputMode_PushPull, GPIO_Value_High);
     int fd3 = GPIO_OpenAsOutput(MT3620_GPIO8, GPIO_OutputMode_PushPull, GPIO_Value_High);
 
-    if (fd0 < 0) {
-        Log_Debug("Error opening GPIO: %s (%d). Check that app_manifest.json includes the GPIO used.\n", strerror(errno), errno);
-        return ExitCode_Main_Led;
-    }
-
     const struct timespec sleepTime = {.tv_sec = 1, .tv_nsec = 0};
     while (true) {
-        //GPIO_SetValue(fd0, GPIO_Value_Low);
-        GPIO_SetValue(fd1, GPIO_Value_Low);
-        nanosleep(&sleepTime, NULL);
+        GPIO_SetValue(fd0, GPIO_Value_High);
 
-        GPIO_SetValue(fd0, GPIO_Value_Low);
+        GPIO_SetValue(fd1, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
 
         GPIO_SetValue(fd2, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
 
-        GPIO_SetValue(fd0, GPIO_Value_High);
-        nanosleep(&sleepTime, NULL);
-
         GPIO_SetValue(fd3, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
-
-        GPIO_SetValue(fd0, GPIO_Value_Low);
-        nanosleep(&sleepTime, NULL);
-
 
 
         GPIO_SetValue(fd1, GPIO_Value_High);
         nanosleep(&sleepTime, NULL);
 
-        GPIO_SetValue(fd0, GPIO_Value_High);
-        nanosleep(&sleepTime, NULL);
-
         GPIO_SetValue(fd2, GPIO_Value_High);
-        nanosleep(&sleepTime, NULL);
-
-        GPIO_SetValue(fd0, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
 
         GPIO_SetValue(fd3, GPIO_Value_High);
         nanosleep(&sleepTime, NULL);
 
-        GPIO_SetValue(fd0, GPIO_Value_High);
+        GPIO_SetValue(fd0, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
     }
 }
