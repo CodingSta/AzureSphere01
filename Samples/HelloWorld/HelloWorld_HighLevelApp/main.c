@@ -1,15 +1,4 @@
-﻿/* Copyright (c) Microsoft Corporation. All rights reserved.
-   Licensed under the MIT License. */
-
-// This minimal Azure Sphere app repeatedly toggles GPIO 8, which is the red channel of RGB
-// LED 1 on the MT3620 RDB. Use this app to test that device and SDK installation succeeded
-// that you can build, deploy, and debug a CMake app with Visual Studio.
-//
-// It uses the API for the following Azure Sphere application libraries:
-// - gpio (digital input for button)
-// - log (displays messages in the Device Output window during debugging)
-
-#include <stdbool.h>
+﻿#include <stdbool.h>
 #include <errno.h>
 #include <string.h>
 #include <time.h>
@@ -17,12 +6,6 @@
 #include <applibs/log.h>
 #include <applibs/gpio.h>
 
-// The following #include imports a "sample appliance" definition. This app comes with multiple
-// implementations of the sample appliance, each in a separate directory, which allow the code to
-// run on different hardware.
-//
-// By default, this app targets hardware that follows the MT3620 Reference Development Board (RDB)
-// specification, such as the MT3620 Dev Kit from Seeed Studio.
 //
 // To target different hardware, you'll need to update CMakeLists.txt. For example, to target the
 // Avnet MT3620 Starter Kit, change the TARGET_HARDWARE variable to
@@ -38,14 +21,13 @@
 /// </summary>
 typedef enum {
     ExitCode_Success = 0,
-
     ExitCode_Main_Led = 1
 } ExitCode;
 
 int main(void)
 {
     Log_Debug("Starting CMake Hello World application...\n");
-
+    // MT3620_GPIO5
     int fd0 = GPIO_OpenAsOutput(MT3620_GPIO5, GPIO_OutputMode_PushPull, GPIO_Value_High);
     int fd1 = GPIO_OpenAsOutput(MT3620_GPIO6, GPIO_OutputMode_PushPull, GPIO_Value_High);
     int fd2 = GPIO_OpenAsOutput(MT3620_GPIO7, GPIO_OutputMode_PushPull, GPIO_Value_High);
@@ -61,16 +43,40 @@ int main(void)
         //GPIO_SetValue(fd0, GPIO_Value_Low);
         GPIO_SetValue(fd1, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
+
+        GPIO_SetValue(fd0, GPIO_Value_Low);
+        nanosleep(&sleepTime, NULL);
+
         GPIO_SetValue(fd2, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
+
+        GPIO_SetValue(fd0, GPIO_Value_High);
+        nanosleep(&sleepTime, NULL);
+
         GPIO_SetValue(fd3, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
 
+        GPIO_SetValue(fd0, GPIO_Value_Low);
+        nanosleep(&sleepTime, NULL);
+
+
+
         GPIO_SetValue(fd1, GPIO_Value_High);
         nanosleep(&sleepTime, NULL);
+
+        GPIO_SetValue(fd0, GPIO_Value_High);
+        nanosleep(&sleepTime, NULL);
+
         GPIO_SetValue(fd2, GPIO_Value_High);
         nanosleep(&sleepTime, NULL);
+
+        GPIO_SetValue(fd0, GPIO_Value_Low);
+        nanosleep(&sleepTime, NULL);
+
         GPIO_SetValue(fd3, GPIO_Value_High);
+        nanosleep(&sleepTime, NULL);
+
+        GPIO_SetValue(fd0, GPIO_Value_High);
         nanosleep(&sleepTime, NULL);
     }
 }
