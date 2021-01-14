@@ -2,8 +2,7 @@
 #include <errno.h>
 #include <string.h>
 #include <time.h>
-#include <hw/mt3620.h>
-
+//#include <hw/mt3620.h>
 #include <applibs/log.h>
 #include <applibs/gpio.h>
 #include <hw/sample_appliance.h>
@@ -25,6 +24,7 @@ int main(void)
 
     while (true) {
         GPIO_SetValue(fd0, GPIO_Value_High);
+        nanosleep(&sleepTime, NULL);
 
         GPIO_SetValue(fd1, GPIO_Value_Low);
         nanosleep(&sleepTime, NULL);
@@ -36,6 +36,10 @@ int main(void)
         nanosleep(&sleepTime, NULL);
 
 
+
+        GPIO_SetValue(fd0, GPIO_Value_Low);
+        nanosleep(&sleepTime, NULL);
+
         GPIO_SetValue(fd1, GPIO_Value_High);
         nanosleep(&sleepTime, NULL);
 
@@ -43,10 +47,7 @@ int main(void)
         nanosleep(&sleepTime, NULL);
 
         GPIO_SetValue(fd3, GPIO_Value_High);
-        nanosleep(&sleepTime, NULL);
-
-        GPIO_SetValue(fd0, GPIO_Value_Low);
-        nanosleep(&sleepTime, NULL);
+        nanosleep(&sleepTime, NULL);        
     }
 }
 

@@ -1,5 +1,0 @@
-# ninja log v5
-0	22	1610607208	CMakeFiles/HelloWorld_HighLevelApp.dir/main.c.obj	127021ef54a0c338
-22	33	1610607208	HelloWorld_HighLevelApp.out	cbbb2bf1db2f2547
-33	50	1610607208	approotHelloWorld_HighLevelApp/bin/app	f9d33e3e18a67a6a
-50	658	1610607208	HelloWorld_HighLevelApp.imagepackage	ddccd23693f957e6

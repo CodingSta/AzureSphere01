@@ -1,4 +1,0 @@
-/build/CMakeFiles/rebuild_cache.dir
-/build/CMakeFiles/edit_cache.dir
-/build/CMakeFiles/HelloWorld_HighLevelApp.dir
-/build/CMakeFiles/MakeImage.dir
