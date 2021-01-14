@@ -1,0 +1,68 @@
+---
+
+## `[01/14/2021 06:53:28] image-package pack-application -v -a /AzureSphere01/Samples/HelloWorld/HelloWorld_HighLevelApp/app_manifest.json -i /build/approotHelloWorld_HighLevelApp -o /build/HelloWorld_HighLevelApp.imagepackage -s 7 -p /AzureSphere01/HardwareDefinitions/mt3620_rdb,/opt/azurespheresdk/HardwareDefinitions/ -f sample_appliance.json`
+
+**[01/14/2021 06:53:28] Information**
+```
+Azure Sphere Utility version 20.10.0.44851
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+```
+
+**[01/14/2021 06:53:28] Information**
+```
+Start time (UTC): Thursday, 14 January 2021 06:53:28
+```
+
+**[01/14/2021 06:53:28] Debug**
+```
+Creating image package.
+```
+
+**[01/14/2021 06:53:28] Debug**
+```
+Azure Sphere application image package written.
+```
+
+**[01/14/2021 06:53:28] Debug**
+```
+Appending metadata.
+```
+
+**[01/14/2021 06:53:28] Debug**
+```
+Wrote metadata:
+  Section: Identity
+    Image Type:           Application
+    Component ID:         1689d8b2-c835-2e27-27ad-e894d6d15fa9
+    Image ID:             c78c1b60-de43-4500-9456-b4dcff14c3bf
+  Section: Signature
+    Signing Type:         ECDsa256
+    Cert:                 a8d5cc6958f48710140d7a26160fc1cfc31f5df0
+  Section: Debug
+    Image Name:           HelloWorld_HighLevelApp
+    Built On (UTC):       01/14/2021 06:53:29
+    Built On (Local):     01/14/2021 06:53:29
+  Section: Temporary Image
+    Remove image at boot: False
+    Under development:    True
+  Section: ABI Depends
+    Depends on:           ApplicationRuntime, version 7
+
+```
+
+**[01/14/2021 06:53:28] Debug**
+```
+Packaging completed successfully.
+```
+
+**[01/14/2021 06:53:28] Debug**
+```
+Output file is at: /build/HelloWorld_HighLevelApp.imagepackage
+```
+
+**[01/14/2021 06:53:28] Information**
+```
+Command completed in 00:00:01.5951877.
+```
+

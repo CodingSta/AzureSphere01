@@ -2,23 +2,12 @@
 #include <errno.h>
 #include <string.h>
 #include <time.h>
+#include <hw/mt3620.h>
 
 #include <applibs/log.h>
 #include <applibs/gpio.h>
-
-//
-// To target different hardware, you'll need to update CMakeLists.txt. For example, to target the
-// Avnet MT3620 Starter Kit, change the TARGET_HARDWARE variable to
-// "avnet_mt3620_sk".
-//
-// See https://aka.ms/AzureSphereHardwareDefinitions for more details.
 #include <hw/sample_appliance.h>
 
-/// <summary>
-/// Exit codes for this application. These are used for the
-/// application exit code. They must all be between zero and 255,
-/// where zero is reserved for successful termination.
-/// </summary>
 typedef enum {
     ExitCode_Success = 0,
     ExitCode_Main_Led = 1
@@ -27,13 +16,13 @@ typedef enum {
 int main(void)
 {
     Log_Debug("Starting CMake Hello World application...\n");
-    // MT3620_GPIO5
     int fd0 = GPIO_OpenAsOutput(MT3620_GPIO5, GPIO_OutputMode_PushPull, GPIO_Value_High);
     int fd1 = GPIO_OpenAsOutput(MT3620_GPIO6, GPIO_OutputMode_PushPull, GPIO_Value_High);
     int fd2 = GPIO_OpenAsOutput(MT3620_GPIO7, GPIO_OutputMode_PushPull, GPIO_Value_High);
     int fd3 = GPIO_OpenAsOutput(MT3620_GPIO8, GPIO_OutputMode_PushPull, GPIO_Value_High);
 
     const struct timespec sleepTime = {.tv_sec = 1, .tv_nsec = 0};
+
     while (true) {
         GPIO_SetValue(fd0, GPIO_Value_High);
 
@@ -60,3 +49,15 @@ int main(void)
         nanosleep(&sleepTime, NULL);
     }
 }
+
+//
+// To target different hardware, you'll need to update CMakeLists.txt. For example, to target the
+// Avnet MT3620 Starter Kit, change the TARGET_HARDWARE variable to
+// "avnet_mt3620_sk".
+//
+// See https://aka.ms/AzureSphereHardwareDefinitions for more details.
+/// <summary>
+/// Exit codes for this application. These are used for the
+/// application exit code. They must all be between zero and 255,
+/// where zero is reserved for successful termination.
+/// </summary>
