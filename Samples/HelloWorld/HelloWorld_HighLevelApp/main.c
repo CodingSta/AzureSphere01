@@ -14,10 +14,10 @@ typedef enum {
 int main(void)
 {
     Log_Debug("Starting CMake Hello World application...\n");
-    int fd0 = GPIO_OpenAsOutput(SAMPLE_A, GPIO_OutputMode_PushPull, GPIO_Value_High);
+    int fd0 = GPIO_OpenAsOutput(SAMPLE_NRF52_RESET, GPIO_OutputMode_PushPull, GPIO_Value_High);
     int fd1 = GPIO_OpenAsOutput(SAMPLE_B, GPIO_OutputMode_PushPull, GPIO_Value_High);
     int fd2 = GPIO_OpenAsOutput(SAMPLE_C, GPIO_OutputMode_PushPull, GPIO_Value_High);
-    int fd3 = GPIO_OpenAsOutput(SAMPLE_D, GPIO_OutputMode_PushPull, GPIO_Value_High);
+    int fd3 = GPIO_OpenAsOutput(SAMPLE_LED, GPIO_OutputMode_PushPull, GPIO_Value_High);
 
     const struct timespec sleepTime = {.tv_sec = 1, .tv_nsec = 0};
 

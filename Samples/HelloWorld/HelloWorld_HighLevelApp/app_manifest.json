@@ -5,7 +5,7 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "Gpio": [ "$SAMPLE_A", "$SAMPLE_B", "$SAMPLE_C", "$SAMPLE_D"]
+    "Gpio": ["$SAMPLE_NRF52_RESET", "$SAMPLE_B", "$SAMPLE_C", "$SAMPLE_LED"]
   },
   "ApplicationType": "Default"
 }
