@@ -12,6 +12,13 @@
 #pragma once
 #include "mt3620_rdb.h"
 
+// MT3620 RDB: Connect external NRF52 RESET GPIO using header 2, pin 4
+#define SAMPLE_NRF52_RESET MT3620_RDB_HEADER2_PIN4_GPIO
+#define SAMPLE_B MT3620_RDB_HEADER2_PIN6_GPIO
+#define SAMPLE_C MT3620_RDB_HEADER2_PIN8_GPIO
+// MT3620 RDB: LED 1 (red channel)
+#define SAMPLE_LED MT3620_RDB_LED1_RED
+
 // MT3620 RDB: Button A
 #define SAMPLE_BUTTON_1 MT3620_RDB_BUTTON_A
 
@@ -24,8 +31,6 @@
 // MT3620 RDB: Connect external potentiometer to ADC controller 0, channel 0 using header 2, pin 11. In the app manifest, it is only necessary to request the capability for the ADC Group Controller, SAMPLE_POTENTIOMETER_ADC_CONTROLLER.
 #define SAMPLE_POTENTIOMETER_ADC_CHANNEL MT3620_ADC_CHANNEL0
 
-// MT3620 RDB: LED 1 (red channel)
-#define SAMPLE_LED MT3620_RDB_LED1_RED
 
 // MT3620 RDB: PWM LED controller
 #define SAMPLE_LED_PWM_CONTROLLER MT3620_RDB_LED_PWM_CONTROLLER2
@@ -54,8 +59,6 @@
 // MT3620 SPI Chip Select (CS) value "A". This is not a peripheral identifier, and so has no meaning in an app manifest.
 #define SAMPLE_LSM6DS3_SPI_CS MT3620_SPI_CS_A
 
-// MT3620 RDB: Connect external NRF52 RESET GPIO using header 2, pin 4
-#define SAMPLE_NRF52_RESET MT3620_RDB_HEADER2_PIN4_GPIO
 
 // MT3620 RDB: Connect external NRF52 DFU GPIO using header 2, pin 14
 #define SAMPLE_NRF52_DFU MT3620_RDB_HEADER2_PIN14_GPIO
