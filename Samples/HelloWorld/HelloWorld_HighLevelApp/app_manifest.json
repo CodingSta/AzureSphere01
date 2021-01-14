@@ -5,7 +5,7 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "Gpio": [ "$MT3620_GPIO5", "$MT3620_GPIO6", "$MT3620_GPIO7", "$MT3620_GPIO8"]
+    "Gpio": [ "$SAMPLE_A", "$SAMPLE_B", "$SAMPLE_C", "$SAMPLE_D"]
   },
   "ApplicationType": "Default"
 }
