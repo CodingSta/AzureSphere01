@@ -2,9 +2,9 @@
 #include <errno.h>
 #include <string.h>
 #include <time.h>
-#include <applibs/log.h>
+//#include <applibs/log.h>
 #include <applibs/gpio.h>
-#include <hw/sample_appliance.h>
+//#include <hw/sample_appliance.h>
 
 typedef enum {
     ExitCode_Success = 0,
@@ -13,11 +13,11 @@ typedef enum {
 
 int main(void)
 {
-    Log_Debug("Starting CMake Hello World application...\n");
-    int fd0 = GPIO_OpenAsOutput(SAMPLE_NRF52_RESET, GPIO_OutputMode_PushPull, GPIO_Value_High);
-    int fd1 = GPIO_OpenAsOutput(SAMPLE_B, GPIO_OutputMode_PushPull, GPIO_Value_High);
-    int fd2 = GPIO_OpenAsOutput(SAMPLE_C, GPIO_OutputMode_PushPull, GPIO_Value_High);
-    int fd3 = GPIO_OpenAsOutput(SAMPLE_LED, GPIO_OutputMode_PushPull, GPIO_Value_High);
+    //Log_Debug("Starting CMake Hello World application...\n");
+    int fd0 = GPIO_OpenAsOutput(MT3620_GPIO5, GPIO_OutputMode_PushPull, GPIO_Value_High);
+    int fd1 = GPIO_OpenAsOutput(MT3620_GPIO6, GPIO_OutputMode_PushPull, GPIO_Value_High);
+    int fd2 = GPIO_OpenAsOutput(MT3620_GPIO7, GPIO_OutputMode_PushPull, GPIO_Value_High);
+    int fd3 = GPIO_OpenAsOutput(MT3620_GPIO8, GPIO_OutputMode_PushPull, GPIO_Value_High);
 
     const struct timespec sleepTime = {.tv_sec = 1, .tv_nsec = 0};
 
